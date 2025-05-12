@@ -11,7 +11,7 @@ import type { ZodSchema } from 'zod';
  * - Can reset the form
  */
 
-type Props<TValues> = React.ComponentProps<'form'> & {
+type Props<TValues> = Omit<React.ComponentProps<'form'>, 'onSubmit'> & {
   defaultValues: Record<string, unknown>;
   onSubmit: (values: TValues, reset: () => void) => void;
   schema: ZodSchema<TValues>;

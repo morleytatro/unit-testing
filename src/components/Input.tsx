@@ -8,7 +8,7 @@ export function Input(
   }
 ) {
   const calculatedId = useId();
-  const { setValue, errors } = useFormContext();
+  const { setValue, errors, values } = useFormContext();
 
   const id = props.id ?? calculatedId;
 
@@ -18,6 +18,7 @@ export function Input(
       <input
         id={id}
         {...props}
+        value={values[props.name] as string}
         onChange={(e) => {
           props.onChange?.(e);
           setValue(props.name, e.target.value);
